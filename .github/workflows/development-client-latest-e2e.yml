@@ -21,17 +21,7 @@ jobs:
       - name: ➕ Add `bin` to GITHUB_PATH
         run: echo "$(pwd)/bin" >> $GITHUB_PATH
       - name: 🍺 Install required tools
-        run: |
-          brew tap wix/brew
-          brew install applesimutils
-          brew install watchman
-      - name: 💎 Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          ruby-version: 3.2.2
-      - name: 💎 Install cocoapods
-        run: sudo gem install cocoapods
+        
       - name: 🔨 Use JDK 11
         uses: actions/setup-java@v4
         with:
@@ -66,6 +56,12 @@ jobs:
         uses: ./.github/actions/slack-notify
         if: failure()
         with:
-          webhook: ${{ secrets.slack_webhook_dev_client }}
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: webhook-trigger 
           channel: '#dev-clients'
-          author_name: Dev Client e2e
+          author_name: AHMED OUARDI 
+          name: Send GitHub Action data to a Slack workflow
+          uses: slackapi/slack-github-action@v2.1.1
+         with:          
+    name: "_"
+  
