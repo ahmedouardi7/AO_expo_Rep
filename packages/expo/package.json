@@ -93,7 +93,7 @@
     "expo-keep-awake": "~15.0.7",
     "expo-modules-autolinking": "3.0.11",
     "expo-modules-core": "3.0.16",
-    "pretty-format": "^29.7.0",
+    "pretty-format": "^30.2.0",
     "react-refresh": "^0.14.2",
     "whatwg-url-without-unicode": "8.0.0-3"
   },
