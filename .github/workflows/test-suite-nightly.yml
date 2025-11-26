@@ -108,15 +108,10 @@ jobs:
       - name: 🔨 Switch to Xcode 26.0
         run: sudo xcode-select --switch /Applications/Xcode_26.0.app
       - name: 🍺 Install required tools
-        run: |
-          brew install watchman || true
+       
       - name: ➕ Add `bin` to GITHUB_PATH
         run: echo "$(pwd)/bin" >> $GITHUB_PATH
-      - name: 💎 Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          ruby-version: 3.2.2
+      
       - name: ♻️ Restore caches
         uses: ./.github/actions/expo-caches
         id: expo-caches
@@ -156,8 +151,7 @@ jobs:
   uses: actions/stale@v10.1.0
   with:
     # Token for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.
-    repo-token: # optional, default is ${{ github.token }}
-    # The message to post on the issue when tagging it. If none provided, will not mark issues stale.
+    repo-token: # optional, default io post on the issue when tagging it. If none provided, will not mark issues stale.
     stale-issue-message: # optional
     # The message to post on the pull request when tagging it. If none provided, will not mark pull requests stale.
     stale-pr-message: # optional
