@@ -1,0 +1,93 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+version: 2
+updates:
+  # Root npm (workspace root)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 20
+    labels:
+      - "dependencies"
+      - "dependabot"
+      - "automerge"
+    commit-message:
+      prefix: "chore(deps)"
+    allow:
+      - dependency-type: "all"
+    rebase-strategy: "auto"
+
+  # expo-dev-client package
+  - package-ecosystem: "npm"
+    directory: "/packages/expo-dev-client"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 8
+    labels:
+      - "dependencies"
+      - "dependabot"
+      - "automerge"
+    commit-message:
+      prefix: "chore(deps)"
+    allow:
+      - dependency-type: "all"
+    rebase-strategy: "auto"
+
+  # packages/expo package
+  - package-ecosystem: "npm"
+    directory: "/packages/expo"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 8
+    labels:
+      - "dependencies"
+      - "dependabot"
+      - "automerge"
+    commit-message:
+      prefix: "chore(deps)"
+    allow:
+      - dependency-type: "all"
+    rebase-strategy: "auto"
+
+  # Add more package directories under /packages as needed:
+  # - package-ecosystem: "npm"
+  #   directory: "/packages/<other-package>"
+  #   ...
+
+  # Gradle for Android
+  - package-ecosystem: "gradle"
+    directory: "/android"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 8
+    labels:
+      - "dependencies"
+      - "dependabot"
+      - "automerge"
+    commit-message:
+      prefix: "chore(deps)"
+    allow:
+      - dependency-type: "all"
+    rebase-strategy: "auto"
+
+  # GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "04:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "dependabot"
+      - "automerge"
+    commit-message:
+      prefix: "chore(deps)"
+    rebase-strategy: "auto"
