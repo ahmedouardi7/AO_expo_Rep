@@ -4639,9 +4639,9 @@
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
 "@types/needle@*":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@types/needle/-/needle-3.2.3.tgz#9d850da6f0f3fb713c2ea184fecd357a025bacbf"
-  integrity sha512-aUtoZUGROl654rDZlZYPRYaysAOBaVgjnbmYKq3n32afuqFvEts31YGixTebSOCJt7B7qKnHzCzcjbMig5LcQg==
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@types/needle/-/needle-3.3.0.tgz#4efe9c27b4ffed8b5b9f2025dab75931877daac0"
+  integrity sha512-UFIuc1gdyzAqeVUYpSL+cliw2MmU/ZUhVZKE7Zo4wPbgc8hbljeKSnn6ls6iG8r5jpegPXLUIhJ+Wb2kLVs8cg==
   dependencies:
     "@types/node" "*"
 
