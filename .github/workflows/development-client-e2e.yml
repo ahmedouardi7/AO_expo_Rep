@@ -1,6 +1,11 @@
 name: Development Client e2e
 
 on:
+
+jobs:
+  my_job:
+    name: deploy to staging
+    runs-on: ubuntu-22.04
   workflow_dispatch: {}
   pull_request:
     paths:
@@ -29,16 +34,7 @@ jobs:
         run: echo "$(pwd)/bin" >> $GITHUB_PATH
       - name: 🍺 Install required tools
         run: |
-          brew tap wix/brew
-          brew install applesimutils
-          brew install watchman
-      - name: 💎 Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          ruby-version: 3.2.2
-      - name: 💎 Install cocoapods
-        run: sudo gem install cocoapods
+         
       - name: ♻️ Restore caches
         uses: ./.github/actions/expo-caches
         id: expo-caches
