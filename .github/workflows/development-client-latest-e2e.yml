@@ -1,3 +1,25 @@
+jobs:
+  detox_latest_e2e:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        api-level: [34]
+    steps:
+      - name: 👀 Checkout
+        uses: actions/checkout@v4
+      - name: ➕ Add `bin` to GITHUB_PATH
+        run: echo "$(pwd)/bin" >> $GITHUB_PATH
+      - name: Install watchman
+        run: sudo apt-get update && sudo apt-get install -y watchman
+      # REMOVE any brew/applesimutils/ruby/cocoapods steps
+      - name: 🔨 Use JDK 11
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+      # ...rest of your Android steps
+
+
 name: Development Client latest e2e
 
 on:
@@ -21,17 +43,7 @@ jobs:
       - name: ➕ Add `bin` to GITHUB_PATH
         run: echo "$(pwd)/bin" >> $GITHUB_PATH
       - name: 🍺 Install required tools
-        run: |
-          brew tap wix/brew
-          brew install applesimutils
-          brew install watchman
-      - name: 💎 Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          ruby-version: 3.2.2
-      - name: 💎 Install cocoapods
-        run: sudo gem install cocoapods
+      - run: sudo apt-get update && sudo apt-get install -y watchman
       - name: 🔨 Use JDK 11
         uses: actions/setup-java@v4
         with:
